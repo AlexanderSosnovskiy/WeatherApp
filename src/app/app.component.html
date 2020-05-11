@@ -1,0 +1,62 @@
+<main class="root__container">
+
+  <!-- Header -->
+
+  <header [ngClass]="{'main__header-dark': darkModeState}" class="main__header">
+
+    <span class="logo__icon">☀️ Погода</span>
+
+    <h3 class="date__text">{{ today }}</h3>
+
+    <div class="mode-toggle__container">
+      <span class="mode-toggle__text">Світла</span>
+
+      <label class="toggle-button__container">
+        <input (click)="modeToggleSwitch()" type="checkbox" class="mode-toggle__input" />
+        <span [ngClass]="{'mode-toggle__bg-checked': darkModeState}" class="mode-toggle__bg"></span>
+        <span [ngClass]="{'mode-toggle__circle-checked': darkModeState}" class="mode-toggle__circle"></span>
+      </label>
+
+      <span class="mode-toggle__text">Темна</span>
+    </div>
+
+  </header>
+
+  <!-- Main Content -->
+  
+  <div class="main-container" [ngClass]="{'main-container-dark': darkModeState}">
+    <div class="city-search-wrapper">
+    
+      <div class="city-search-header"> 
+        <h3 class="city-search-title">ПОШУК МІСТА ПО УКРАЇНІ</h3>
+        <div class="search-city-input-wrapper">
+          <input id="search" class="search-city-input" 
+                 auto-complete-placeholder="Пошук міста" 
+                 placeholder="Пошук міста" 
+                 auto-complete 
+                 [(ngModel)]="selectedCity" 
+                 (keyup.enter)="selectCity(input.value)" 
+                 (ngModelChange)="selectCity(input.value)"
+                 [source]="capitals" 
+                 [max-num-list]="5" 
+                 #input 
+          />
+        </div>
+        <div class="city-search-hr">
+          <span class="city-search-hr__drop"></span>
+          <span class="city-search-hr__drop"></span>
+          <span class="city-search-hr__drop"></span>
+        </div>
+      </div>
+    
+      <div class="city-search-body">
+        <span *ngIf="showNote" class="city-invalid-note">
+          Назва міста немає. Примітка: пошук відбувається тільки по облостним центрам 
+        </span>
+        <app-weather-card [city]="cardCity" [mode]="darkModeState"></app-weather-card>
+      </div>
+    
+    </div>
+  </div>
+
+</main>

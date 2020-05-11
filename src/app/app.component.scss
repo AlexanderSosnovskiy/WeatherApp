@@ -1,0 +1,214 @@
+.root__container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* Header */
+
+.main__header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    margin: 0;
+    box-shadow: 0 0 2rem rgba(0, 0, 255, 0.1);
+    transition: background-color 500ms linear;
+    animation: 1s ease-in-out 0ms 1 fadein;
+
+    &-dark {
+        background-color: #2B244D;
+        color: white;
+    }
+}
+
+.toggle-button__container {
+    position: relative;
+    margin: 0 0.5rem;
+}
+
+.mode-toggle {
+
+    &__bg {
+        height: 1rem;
+        width: 2rem;
+        border-radius: 0.5rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: inline-block;
+        transition: background-color 300ms linear;
+        transform: translateY(12.5%);
+        cursor: pointer;
+
+        &-checked {
+            background-color: #FF0070;
+        }
+    }
+
+    &__circle {
+        height: 1.30rem;
+        width: 1.30rem;
+        background-color: #2B244D;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        box-shadow: 0 0 0 rgba(0, 0, 255, 0.5);
+        transition: left 300ms linear;
+        cursor: pointer;
+
+        &-checked {
+            background-color: white;
+            left: 0.7rem;
+        }
+    }
+
+    &__input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    &__text {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        user-select: none;
+    }
+
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 10rem;
+        margin-right: 1rem;
+    }
+}
+
+.logo {
+
+    &__icon {
+        height: 2rem;
+        width: 10rem;
+        margin-left: 1rem;
+        font-size: 30px;
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+.date__text {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin: 0.5rem auto;
+    user-select: none;
+}
+
+/* Body */
+
+.main-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: calc(100% - 4rem);
+    width: 100%;
+    z-index: 0;
+    opacity: 1;
+    padding-top: 4rem;
+    background: linear-gradient(to top, #5ee7df 0%, #66a6ff 100%);
+    transition: opacity 300ms linear;
+
+    &-dark {
+        background: linear-gradient(to bottom, #B290FF, #2E1D65);
+        transition: opacity 300ms linear;
+    }
+}
+
+.city-search {
+
+    &-wrapper {
+        display: flex;
+        flex-flow: column;
+        flex: 1 1;
+        position: relative;
+        overflow-y: auto;
+    }
+
+    &-header {
+        width: 100%;
+        min-height: 40%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-flow: column;
+    }
+
+    &-body {
+        width: 100%;
+        min-height: 60%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &-hr {
+        margin: 2rem;
+
+        &__drop {
+            display: inline-block;
+            width: 1rem;
+            height: 1rem;
+            margin: 0 0.7rem;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+    }
+}
+
+
+.search-city-input-wrapper {
+    position: relative;
+    width: 80%;
+    box-sizing: border-box;
+}
+
+.search-city-input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 3rem;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 2rem 0.15rem rgba(0, 0, 255, 0.1);
+    font-size: 1rem;
+    color: #131F69;
+    text-transform: uppercase;
+}
+
+.search-city-input::placeholder {
+    font-size: 1rem;
+    color: #131F69;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+}
+
+.search-city-btn {
+    cursor: pointer;
+    position: absolute;
+    background-color: #31feae;
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    right: 0;
+    top: -0.35rem;
+    outline: none;
+    border: none;
+    z-index: 5;
+    box-shadow: 0 0 2rem 0.15rem rgba(0, 0, 255, 0.1);
+}
+
+.search-icon {
+    height: 50%;
+    width: 50%;
+}
